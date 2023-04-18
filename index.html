@@ -10,21 +10,45 @@
 <body>
     <h1>API-excercise</h1>
  <main> 
-      <table id="table_of_pokemons">
-        <tr id="header">
-          <th id="header_number">Number</th>
-          <th id="header_image">Image</th>
-          <th id="header_text">Text</th>
+      <table id="table_of_posts">
+        <tr id="header_posts">
+          <th id="header_posts_title">Title</Title></th>
+          <th id="header_posts_image">Image</th>
+          <th id="header_posts_text">Body</th>
         </tr>
       </table>
    </main>
        <section id="posts"> 
-          <dialog id="dialog_window">
+          <dialog id="dialog_window_posts">
             <img id="posts-image"/>
-            <p id="posts-id"></p>
+            <p id="posts-body"></p>
             <p id="posts-title"></p>
-          <form method="dialog">
-            <button id="closeButton">Close</button>
+          <form method="dialog_posts">
+            <button id="closeButton_posts">Close</button>
+          </form>
+          </dialog>
+         </section>
+
+         <main> 
+      <table id="table_of_users">
+        <tr id="header_users">
+          <th id="header_users_title">Title</Title></th>
+          <th id="header_users_image">Image</th>
+          <th id="header_users_name">Name</th>
+          <th id="header_users_mail">Mail</th>
+          <th id="header_users_phone">Phone</th>
+        </tr>
+      </table>
+   </main>
+       <section id="users"> 
+          <dialog id="dialog_window_users">
+            <img id="users-image"/>
+            <p id="users-mail"></p>
+            <p id="users-name"></p>
+            <p id="users-title"></p>
+            <p id="users-phone"></p>
+          <form method="dialog_users">
+            <button id="closeButton_users">Close</button>
           </form>
           </dialog>
          </section>
