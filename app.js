@@ -54,7 +54,7 @@ function displayPosts(posts) {
 
 function displayPost() {}
 
-function createPost(title, body, image) {
+async function createPost(title, body, image) {
   const newPost = {
     title: title,
     body: body,
@@ -62,6 +62,13 @@ function createPost(title, body, image) {
   };
   console.log(newPost);
   const postAsJson = JSON.stringify(newPost);
+  const response = await fetch(`${endpoint}/posts.json`,
+    { method: "POST",
+      body: postAsJson
+    }
+  )
+  const data = await response.json()
+  console.log(data);
 }
 
 async function getUsers() {
