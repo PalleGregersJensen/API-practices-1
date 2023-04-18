@@ -3,7 +3,8 @@ body {
 }
 
 
-table,
+
+#posts,
 th,
 td {
   table-layout: fixed; 
@@ -12,8 +13,8 @@ td {
   text-align: center;
 }
 
-table,
-tr {
+
+ tr { 
   width: 95vw;
   height: 20vh;
 }
