@@ -11,7 +11,11 @@ async function initApp() {
   displayPosts(posts);
   const users = await getUsers();
   displayUsers(users);
-
+  createPost(
+    "My First Post",
+    "My body text",
+    "https://images.unsplash.com/photo-1641876749963-550554c7258d"
+  );
 }
 
 async function getPosts() {
@@ -48,11 +52,17 @@ function displayPosts(posts) {
   }
 }
 
-function displayPost() {
+function displayPost() {}
 
+function createPost(title, body, image) {
+  const newPost = {
+    title: title,
+    body: body,
+    image: image,
+  };
+  console.log(newPost);
+  const postAsJson = JSON.stringify(newPost);
 }
-
-
 
 async function getUsers() {
   const response = await fetch(`${endpoint}/users.json`);
