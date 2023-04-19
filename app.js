@@ -8,7 +8,7 @@ const endpoint = "https://api-project-pgj-2023-default-rtdb.firebaseio.com/";
 
 async function initApp() {
   const posts = await getPosts();
-  displayPosts(posts);
+  // displayPosts(posts);
   const users = await getUsers();
   displayUsers(users);
   createPost(
@@ -16,6 +16,19 @@ async function initApp() {
     "My body text",
     "https://images.unsplash.com/photo-1641876749963-550554c7258d"
   );
+  updatePostTable(posts);
+  deletePost("NTNOJYYxWYPG7T0Y_yn");
+  updatePost(
+    "5tl4jHHSRaKEB0UW9nQd",
+    "My Second Post",
+    "https://images.unsplash.com/photo-1641876749963-550554c7258d"
+  );
+
+}
+
+function updatePostTable(posts) {
+  displayPosts(posts);
+  console.log("Display posts");
 }
 
 async function getPosts() {
@@ -45,8 +58,10 @@ function displayPosts(posts) {
           <td>${post.title}</td>
           <td><img src="${post.image}"></td>
           <td>${post.body}</td>
-        </tr>
-     `;
+          <button id="update_button">Update</button>
+          <button id="delete_button">Delete</button>
+     </tr>
+        `;
 
     document.querySelector("#posts").insertAdjacentHTML("beforeend", html);
   }
@@ -62,12 +77,11 @@ async function createPost(title, body, image) {
   };
   console.log(newPost);
   const postAsJson = JSON.stringify(newPost);
-  const response = await fetch(`${endpoint}/posts.json`,
-    { method: "POST",
-      body: postAsJson
-    }
-  )
-  const data = await response.json()
+  const response = await fetch(`${endpoint}/posts.json`, {
+    method: "POST",
+    body: postAsJson,
+  });
+  const data = await response.json();
   console.log(data);
 }
 
@@ -106,3 +120,25 @@ function displayUsers(users) {
     document.querySelector("#users").insertAdjacentHTML("beforeend", html);
   }
 }
+
+// === UPDATE (PUT) === //
+async function updatePost(id, title, image) {
+    const postToUpdate = { title, image };
+    const postAsJson = JSON.stringify(postToUpdate);
+		const url = `${endpoint}/posts/${id}.json`;
+
+    const response = await fetch(url, { method: "PUT", body: postAsJson });
+    const data = await response.json();
+    console.log(data);
+}
+
+
+// === DELETE (DELETE) === //
+async function deletePost(id) {
+		const url = `${endpoint}/posts/${id}.json`;
+    const response = await fetch(url, { method: "DELETE" });
+    console.log(response);
+  console.log("delete post")
+}
+
+

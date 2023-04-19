@@ -20,11 +20,13 @@ td {
 #table_of_posts {
   width: 100%;
   table-layout: fixed;
+  border: 0.25em solid;
 }
 
 #table_of_users {
   width: 100%;
   table-layout: fixed;
+  border: 0.25em solid;
 }
 
 table {
@@ -35,6 +37,7 @@ img {
   width: 15vw;
   height: 20vh;
 }
+
 
 /* #posts { */
 /* width: 100%; */
