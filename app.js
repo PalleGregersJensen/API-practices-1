@@ -23,7 +23,6 @@ async function initApp() {
     "My Second Post",
     "https://images.unsplash.com/photo-1641876749963-550554c7258d"
   );
-
 }
 
 function updatePostTable(posts) {
@@ -123,22 +122,19 @@ function displayUsers(users) {
 
 // === UPDATE (PUT) === //
 async function updatePost(id, title, image) {
-    const postToUpdate = { title, image };
-    const postAsJson = JSON.stringify(postToUpdate);
-		const url = `${endpoint}/posts/${id}.json`;
+  const postToUpdate = { title, image };
+  const postAsJson = JSON.stringify(postToUpdate);
+  const url = `${endpoint}/posts/${id}.json`;
 
-    const response = await fetch(url, { method: "PUT", body: postAsJson });
-    const data = await response.json();
-    console.log(data);
+  const response = await fetch(url, { method: "PUT", body: postAsJson });
+  const data = await response.json();
+  console.log(data);
 }
-
 
 // === DELETE (DELETE) === //
 async function deletePost(id) {
-		const url = `${endpoint}/posts/${id}.json`;
-    const response = await fetch(url, { method: "DELETE" });
-    console.log(response);
-  console.log("delete post")
+  const url = `${endpoint}/posts/${id}.json`;
+  const response = await fetch(url, { method: "DELETE" });
+  console.log(response);
+  console.log("delete post");
 }
-
-
