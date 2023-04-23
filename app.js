@@ -11,11 +11,14 @@ async function initApp() {
   // displayPosts(posts);
   const users = await getUsers();
   displayUsers(users);
-  createPost(
-    "My First Post",
-    "My body text",
-    "https://images.unsplash.com/photo-1641876749963-550554c7258d"
-  );
+  
+  document.querySelector("#create_button").addEventListener("click", createPost);
+  
+  // createPost(
+    // "My First Post",
+    // "My body text",
+    // "https://images.unsplash.com/photo-1641876749963-550554c7258d"
+  // );
   updatePostTable(posts);
   deletePost("NTNOJYYxWYPG7T0Y_yn");
   updatePost(
@@ -68,7 +71,9 @@ function displayPosts(posts) {
 
 function displayPost() {}
 
-async function createPost(title, body, image) {
+// async function createPost(event, title, body, image)
+async function createPost(event, title, image, body) {
+  event.preventDefault();
   const newPost = {
     title: title,
     body: body,
