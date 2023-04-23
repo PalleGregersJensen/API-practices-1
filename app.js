@@ -72,13 +72,23 @@ function displayPosts(posts) {
 function displayPost() {}
 
 // async function createPost(event, title, body, image)
-async function createPost(event, title, image, body) {
+async function createPost(event) {
   event.preventDefault();
+  
+  const elements = document.querySelector("#form").elements;
+
   const newPost = {
-    title: title,
-    body: body,
-    image: image,
+    title: elements.namedItem("title").value,
+    body: elements.namedItem("body").value,
+    image: elements.namedItem("image")
   };
+
+  // const newPost = {
+    // title: title,
+    // body: body,
+    // image: image,
+  // };
+
   console.log(newPost);
   const postAsJson = JSON.stringify(newPost);
   const response = await fetch(`${endpoint}/posts.json`, {
