@@ -68,7 +68,7 @@ function displayPosts(posts) {
     document.querySelector("#posts").insertAdjacentHTML("beforeend", html);
   }
 }
-
+ 
 function displayPost() {}
 
 // async function createPost(event, title, body, image)
