@@ -64,6 +64,7 @@ function displayPosts(posts) {
           <button id="update_button">Update</button>
           <button id="delete_button">Delete</button>
      </tr>
+     </table>
         `;
 
     document.querySelector("#posts").insertAdjacentHTML("beforeend", html);
@@ -81,7 +82,7 @@ async function createPost(event) {
   const newPost = {
     title: elements.namedItem("title").value,
     body: elements.namedItem("body").value,
-    image: elements.namedItem("image").url
+    image: elements.namedItem("image").value
   };
 
   // const newPost = {
