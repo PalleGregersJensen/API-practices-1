@@ -101,6 +101,27 @@ async function createPost(event) {
   console.log(data);
 }
 
+// === DELETE (DELETE) === //
+async function deletePost(id) {
+  const url = `${endpoint}/posts/${id}.json`;
+  const response = await fetch(url, { method: "DELETE" });
+  console.log(response);
+  console.log("delete post");
+}
+
+
+// === UPDATE (PUT) === //
+async function updatePost(id, title, image) {
+  const postToUpdate = { title, image };
+  const postAsJson = JSON.stringify(postToUpdate);
+  const url = `${endpoint}/posts/${id}.json`;
+
+  const response = await fetch(url, { method: "PUT", body: postAsJson });
+  const data = await response.json();
+  console.log(data);
+}
+
+
 async function getUsers() {
   const response = await fetch(`${endpoint}/users.json`);
   const data = await response.json();
@@ -137,21 +158,4 @@ function displayUsers(users) {
   }
 }
 
-// === UPDATE (PUT) === //
-async function updatePost(id, title, image) {
-  const postToUpdate = { title, image };
-  const postAsJson = JSON.stringify(postToUpdate);
-  const url = `${endpoint}/posts/${id}.json`;
 
-  const response = await fetch(url, { method: "PUT", body: postAsJson });
-  const data = await response.json();
-  console.log(data);
-}
-
-// === DELETE (DELETE) === //
-async function deletePost(id) {
-  const url = `${endpoint}/posts/${id}.json`;
-  const response = await fetch(url, { method: "DELETE" });
-  console.log(response);
-  console.log("delete post");
-}
