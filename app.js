@@ -12,6 +12,7 @@ async function initApp() {
   const users = await getUsers();
   displayUsers(users);
   
+  // Call createPost with eventListener on click button
   document.querySelector("#create_button").addEventListener("click", createPost);
   
   // createPost(
@@ -80,7 +81,7 @@ async function createPost(event) {
   const newPost = {
     title: elements.namedItem("title").value,
     body: elements.namedItem("body").value,
-    image: elements.namedItem("image")
+    image: elements.namedItem("image").url
   };
 
   // const newPost = {
